@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-app
+  template:
+    metadata:
+      labels:
+        app: go-app
+        version: v1
+        stage: staging
+    spec:
+      securityContext:
+        runAsUser: 1000 
+      imagePullSecrets:
+        - name: docker-reg-credential
+      containers:
+      - name: go-app
+        image: asia.gcr.io/kube-chiku/go-app:2.0
+        env:
+          - name: TZ
+            value: JST-9
+        resources:
+          requests:
+            cpu: 0.1
+          limits:
+            cpu: 0.3
