@@ -4,7 +4,8 @@ metadata:
   name: ingress
 spec:
   rules:
-  - http:
+  - host: 10.0.7.43
+    http:
       paths:
       - backend:
           serviceName: go-app
