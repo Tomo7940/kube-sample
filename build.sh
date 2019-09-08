@@ -14,10 +14,10 @@ DOCKER_IMAGE=go-app
 
 # Build docker image
 docker build -t $DOCKER_IMAGE:$VERSION .
-docker tag $DOCKER_IMAGE:$VERSION $DOCKER_HOST/$DOCKER=PROJECT/$DOCKER_IMAGE:$VERSION
+docker tag $DOCKER_IMAGE:$VERSION $DOCKER_HOST/$DOCKER_PROJECT/$DOCKER_IMAGE:$VERSION
 
 # Push the image to Private Docker Registry
-docker push $DOCKER_HOST/$DOCKER=PROJECT/$DOCKER_IMAGE:$VERSION
+docker push $DOCKER_HOST/$DOCKER_PROJECT/$DOCKER_IMAGE:$VERSION
 
 # Clean the image
 docker rm $(docker ps -aq)
