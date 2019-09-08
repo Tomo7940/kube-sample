@@ -12,15 +12,10 @@ spec:
       labels:
         app: go-app
         version: v1
-        stage: staging
     spec:
-      securityContext:
-        runAsUser: 1000 
-      imagePullSecrets:
-        - name: docker-reg-credential
       containers:
       - name: go-app
-        image: asia.gcr.io/kube-chiku/go-app:2.0
+        image: asia.gcr.io/kube-chiku/go-app:1.0
         env:
           - name: TZ
             value: JST-9
