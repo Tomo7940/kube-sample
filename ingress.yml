@@ -1,12 +1,12 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress
+  name: go-app-ingress
 spec:
   rules:
   - http:
       paths:
       - backend:
-          serviceName: go-app
+          serviceName: go-app-service
           servicePort: 80
         path: /
